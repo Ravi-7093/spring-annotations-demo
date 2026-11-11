@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Step 1 - User form</title></head>
+<body>
+<h2>Step 1: New user (app v<span th:text="${appVersion}"></span>)</h2>
+
+<!-- th:object="${userForm}" -> fields bind to the "userForm" model attribute -->
+<form th:action="@{/users/form}" th:object="${userForm}" method="post">
+    <p>Name: <input th:field="*{name}"/> <span th:errors="*{name}" style="color:red"></span></p>
+    <p>Email: <input th:field="*{email}"/> <span th:errors="*{email}" style="color:red"></span></p>
+    <p>Age: <input th:field="*{age}"/> <span th:errors="*{age}" style="color:red"></span></p>
+    <p>Join date (dd-MM-yyyy): <input th:field="*{joinDate}" placeholder="25-12-2024"/></p>
+    <p>City: <input th:field="*{address.city}"/> <span th:errors="*{address.city}" style="color:red"></span></p>
+
+    <!-- Mass-assignment attempt: @InitBinder.setAllowedFields drops this. Watch the console. -->
+    <input type="hidden" name="role" value="ADMIN"/>
+
+    <button type="submit">Next</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Done</title></head>
+<body>
+<h2>Saved user id <span th:text="${saved.id}"></span></h2>
+<p th:text="${saved}"></p>
+<p>The session attribute was cleared. <a th:href="@{/users/form}">Start again</a> shows an empty form.</p>
+</body>
+</html>

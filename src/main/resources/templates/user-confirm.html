@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Step 2 - Confirm</title></head>
+<body>
+<h2>Step 2: Confirm (values read from the HTTP session)</h2>
+<ul>
+    <li>Name: <span th:text="${userForm.name}"></span></li>
+    <li>Email: <span th:text="${userForm.email}"></span></li>
+    <li>Age: <span th:text="${userForm.age}"></span></li>
+    <li>Role: <span th:text="${userForm.role}"></span> (hidden role=ADMIN was blocked)</li>
+    <li>Join date: <span th:text="${userForm.joinDate}"></span></li>
+    <li>City: <span th:text="${userForm.address.city}"></span></li>
+</ul>
+<form th:action="@{/users/finish}" method="post"><button type="submit">Save</button></form>
+<a th:href="@{/users/form}">Back and edit</a>
+</body>
+</html>
