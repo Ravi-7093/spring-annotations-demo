@@ -1,5 +1,5 @@
-# Jenkins controller with JDK 17 (matches pom's java.version) + Maven + plugins pre-installed.
-FROM jenkins/jenkins:lts-jdk17
+# Jenkins controller on JDK 21 (SonarQube scanner needs 21+). App still targets Java 17 via --release 17.
+FROM jenkins/jenkins:lts-jdk21
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends maven && rm -rf /var/lib/apt/lists/*
